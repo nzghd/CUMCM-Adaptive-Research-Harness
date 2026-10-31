@@ -1,0 +1,12 @@
+{
+  "id": "{{IDEA_ID}}",
+  "title": "{{TITLE}}",
+  "family": "{{FAMILY}}",
+  "source": "{{SOURCE}}",
+  "created_at": "{{CREATED_AT}}",
+  "parent_ids": [],
+  "problem_nodes": [],
+  "status": "proposed",
+  "workstream": null,
+  "notes": ""
+}

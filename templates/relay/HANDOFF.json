@@ -1,0 +1,16 @@
+{
+  "round": 1,
+  "status": "continue",
+  "summary": "TODO",
+  "evidence": [],
+  "artifacts": [],
+  "commands_and_results": [],
+  "assumptions_added": [],
+  "next_steps": [],
+  "blockers": [],
+  "do_not_repeat": [],
+  "workspace_truth": [],
+  "next_bounded_task": "TODO",
+  "stop_condition": "TODO",
+  "completed": false
+}

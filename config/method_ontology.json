@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "families": [
+    "baseline",
+    "analytic",
+    "mechanistic",
+    "geometric-spatial",
+    "graph-network",
+    "exact-optimization",
+    "continuous-optimization",
+    "dynamic-programming",
+    "multiobjective",
+    "robust-optimization",
+    "stochastic-process",
+    "simulation",
+    "statistical",
+    "time-series",
+    "causal",
+    "machine-learning",
+    "control",
+    "heuristic-metaheuristic",
+    "uncertainty-quantification",
+    "hybrid"
+  ],
+  "notes": "Tags are descriptive starting points, not a required checklist."
+}

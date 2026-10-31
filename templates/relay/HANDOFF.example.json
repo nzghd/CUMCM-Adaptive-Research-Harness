@@ -1,0 +1,12 @@
+{
+  "round": 1,
+  "task": "",
+  "completed": [],
+  "artifacts": [],
+  "commands_and_results": [],
+  "assumptions_added": [],
+  "open_risks": [],
+  "next_bounded_task": "",
+  "stop_condition": "",
+  "protected_files": []
+}

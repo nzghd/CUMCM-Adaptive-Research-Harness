@@ -1,0 +1,239 @@
+{
+  "version": "5.1.0",
+  "project": "CUMCM Adaptive Research Harness v5.1",
+  "default_phase": "rehearsal",
+  "parallelism": 4,
+  "gates": {
+    "G0": {
+      "name": "Problem map and data audit",
+      "requires": [
+        "RUN_META.json",
+        "problem/PROBLEM_BRIEF.md",
+        "problem/QUESTION_MAP.md",
+        "problem/PROBLEM_GRAPH.json",
+        "problem/ASSUMPTION_REGISTER.csv",
+        "problem/VALIDATION_MAP.md",
+        "data/DATA_MANIFEST.json",
+        "data/DATA_AUDIT.md",
+        "BUDGET.json",
+        "interpretation/PROBLEM_SEMANTICS.md",
+        "interpretation/INTERPRETATION_FORKS.csv",
+        "interpretation/ASSUMPTION_FINGERPRINTS.json",
+        "interpretation/INTERPRETATION_AUDIT.md"
+      ],
+      "v51_requires": [
+        "interpretation"
+      ],
+      "human_approval": true
+    },
+    "G1": {
+      "name": "Independent search and diversity coverage",
+      "requires": [
+        "planning/APPROACH_SPACE.json",
+        "planning/TEAM_PLAN.json",
+        "ideas/IDEA_REGISTRY.json",
+        "research/diversity/DIVERSITY_SCAN.json",
+        "research/diversity/DIVERSITY_REPORT.json",
+        "research/diversity/DIVERSITY_REPORT.md",
+        "research/diversity/DIVERSITY_MATRIX.csv",
+        "research/diversity/GAP_REGISTER.csv"
+      ],
+      "min_ideas": 3,
+      "human_approval": true
+    },
+    "G2": {
+      "name": "Focus set and module deepening",
+      "requires": [
+        "selection/FOCUS_SET.json",
+        "reviews/FEASIBILITY_REVIEW.md",
+        "decisions/DECISION_LOG.jsonl",
+        "sensitivity/STRUCTURAL_SENSITIVITY.csv"
+      ],
+      "v51_requires": [
+        "structural_validation"
+      ],
+      "min_focused_modules": 1,
+      "human_approval": true
+    },
+    "G3": {
+      "name": "Experiments and evidence",
+      "requires": [
+        "experiments/EXPERIMENT_PLAN.md",
+        "experiments/BASELINE_REGISTRY.csv",
+        "experiments/EXPERIMENT_LOG.csv",
+        "experiments/METRICS.csv",
+        "sensitivity/PARAMETER_SENSITIVITY.csv",
+        "evidence/CLAIM_EVIDENCE_LEDGER.csv"
+      ],
+      "human_approval": true
+    },
+    "G4": {
+      "name": "Synthesis and dispute resolution",
+      "requires": [
+        "synthesis/SYNTHESIS_MAP.json",
+        "synthesis/FINAL_MODEL_SPEC.md",
+        "disputes/DISPUTE_REGISTER.json",
+        "reviews/SYNTHESIS_REVIEW.md"
+      ],
+      "v51_requires": [
+        "mathematical_construction"
+      ],
+      "block_on_open_critical_disputes": true,
+      "human_approval": true
+    },
+    "G5": {
+      "name": "Red team and audit",
+      "requires": [
+        "reviews/RED_TEAM_REPORT.md",
+        "reviews/ROBUSTNESS_REPORT.md",
+        "reviews/CODE_AUDIT.md",
+        "reviews/EVIDENCE_AUDIT.md",
+        "reviews/blind/BLIND_REVIEW_INDEX.json",
+        "consistency/CONSISTENCY_MATRIX.csv",
+        "claims/STRONG_CLAIMS_MATH.csv",
+        "claims/STRONG_CLAIM_SCAN_MATH.json"
+      ],
+      "v51_requires": [
+        "independent_review",
+        "consistency"
+      ],
+      "human_approval": true
+    },
+    "G6": {
+      "name": "Evidence-first paper writing, audit and final manuscript",
+      "requires": [
+        "FROZEN_MANIFEST.json",
+        "paper/PAPER_BRIEF.md",
+        "paper/PAPER_PLAN.json",
+        "paper/PAPER_CLAIM_MAP.csv",
+        "paper/SYMBOL_TABLE.csv",
+        "paper/FIGURE_TABLE_REGISTER.csv",
+        "paper/PAPER_OUTLINE.md",
+        "paper/PAPER_DRAFT.md",
+        "paper/CONSISTENCY_AUDIT.md",
+        "paper/PAPER_AUDIT.json",
+        "paper/REVISION_LOG.md",
+        "paper/ASSEMBLY_MANIFEST.json",
+        "paper/FINAL_MANUSCRIPT.md",
+        "paper/PAPER_BUILD.json",
+        "claims/STRONG_CLAIMS.csv"
+      ],
+      "v51_requires": [
+        "consistency",
+        "strong_claim_audit",
+        "paper_extension"
+      ],
+      "human_approval": true
+    },
+    "G7": {
+      "name": "Compliance and delivery",
+      "requires": [
+        "BUDGET.json",
+        "ai/AI_USAGE_LOG.jsonl",
+        "ai/AI_TOOL_USAGE_DETAILS.md",
+        "ai/AI_EXPORT_RECEIPT.json",
+        "sources/SOURCE_LEDGER.csv",
+        "deliverables/FINAL_CHECKLIST.md"
+      ],
+      "v51_requires": [
+        "submission"
+      ],
+      "human_approval": true
+    }
+  },
+  "freeze": {
+    "include": [
+      "problem",
+      "data",
+      "planning",
+      "research",
+      "selection",
+      "experiments",
+      "evidence",
+      "disputes",
+      "synthesis",
+      "code",
+      "results",
+      "figures",
+      "interpretation",
+      "math",
+      "sensitivity"
+    ],
+    "exclude_names": [
+      ".gitkeep",
+      "FROZEN_MANIFEST.json",
+      "MATH_LINT.json"
+    ]
+  },
+  "compliance": {
+    "submission_pdf_required": true,
+    "submission_pdf_max_bytes": 20000000,
+    "support_archive_required": true,
+    "support_archive_path": "deliverables/official/支撑材料.zip",
+    "support_archive_receipt_path": "deliverables/internal/SUPPORT_PACKAGE_RECEIPT.json",
+    "support_archive_max_bytes": 20000000,
+    "ai_statement_heading": "AI工具使用声明",
+    "reference_headings": [
+      "参考文献",
+      "References"
+    ],
+    "anonymity_field_labels": [
+      "姓名",
+      "作者",
+      "队员姓名",
+      "队员",
+      "作者姓名",
+      "学校",
+      "参赛学校",
+      "学校名称",
+      "所在学校",
+      "学院名称",
+      "单位",
+      "单位名称",
+      "指导教师",
+      "指导老师",
+      "学号",
+      "参赛队号",
+      "队号",
+      "队伍编号",
+      "联系电话",
+      "手机号码",
+      "邮箱",
+      "电子邮箱",
+      "Name",
+      "Author",
+      "Authors",
+      "Author Name",
+      "University",
+      "School Name",
+      "Institution",
+      "Institute",
+      "Affiliation",
+      "Affiliations",
+      "Advisor",
+      "Supervisor",
+      "Student ID",
+      "Team ID",
+      "Phone",
+      "Email"
+    ],
+    "final_checklist_item_ids": [
+      "final-manuscript-current",
+      "pre-g7-approvals-current",
+      "claims-and-evidence-reviewed",
+      "sources-and-citations-reviewed",
+      "ai-disclosure-reviewed",
+      "ai-log-completeness-reviewed",
+      "submission-anonymity-reviewed",
+      "support-materials-anonymity-reviewed",
+      "delivery-files-opened"
+    ]
+  },
+  "placeholder_tokens": [
+    "TODO",
+    "待填写",
+    "YOUR_RUN",
+    "{{",
+    "[DRAFT_REQUIRED]"
+  ]
+}

@@ -1,0 +1,37 @@
+__pycache__/
+*.pyc
+.venv/
+.venv-verifier/
+.env
+.env.*
+!.env.example
+.harness/active_run.txt
+runs/*
+!runs/README.md
+!runs/.gitkeep
+*.zip
+/cache/
+/results/
+.DS_Store
+Thumbs.db
+
+# Keep public scaffolds, never local competition inputs.
+/inputs/problem/*
+!/inputs/problem/.gitkeep
+/inputs/data/*
+!/inputs/data/.gitkeep
+
+# Local credentials, editor state and test caches.
+*.pem
+*.key
+*.p12
+*.pfx
+/.claude/settings.local.json
+/.codex/auth.json
+/.vscode/
+/.idea/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

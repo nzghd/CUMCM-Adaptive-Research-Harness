@@ -1,0 +1,22 @@
+{
+  "session_id": "VERIFIER_FAITHFUL_001",
+  "problem_file": "runs/YOUR_RUN/problem/VERIFIER_PROBLEM.md",
+  "candidate_files": {
+    "A": "runs/YOUR_RUN/modes/reference-verifier-faithful/candidates/A.txt",
+    "B": "runs/YOUR_RUN/modes/reference-verifier-faithful/candidates/B.txt",
+    "C": "runs/YOUR_RUN/modes/reference-verifier-faithful/candidates/C.txt"
+  },
+  "criteria": {
+    "Mathematical correctness": "Are the derivations valid under stated assumptions?",
+    "Task coverage": "Does the candidate answer the requested subproblem completely?",
+    "Verification": "Does it provide reproducible checks or evidence?"
+  },
+  "ground_truth_note": "",
+  "model": "deepseek-v4-flash",
+  "n_evaluations": 4,
+  "pivots": 2,
+  "seed": 0,
+  "max_workers": 20,
+  "cache_file": "runs/YOUR_RUN/modes/reference-verifier-faithful/cache.json",
+  "output_dir": "runs/YOUR_RUN/modes/reference-verifier-faithful/result"
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "Q1",
+      "type": "question",
+      "label": "待填写小问",
+      "status": "open"
+    }
+  ],
+  "edges": [],
+  "unresolved_ambiguities": [],
+  "validation_notes": []
+}

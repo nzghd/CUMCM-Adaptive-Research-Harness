@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "MOD_001",
+  "source_ideas": [
+    "IDEA_001"
+  ],
+  "target_nodes": [
+    "Q1"
+  ],
+  "purpose": "",
+  "variables_and_units": [],
+  "equations_or_algorithm": "",
+  "parameter_estimation": "",
+  "interfaces": {
+    "inputs": [],
+    "outputs": []
+  },
+  "baseline": "",
+  "implementation_path": "",
+  "validation_protocol": [],
+  "failure_modes": [],
+  "evidence_ids": [],
+  "human_owner": "",
+  "status": "planned"
+}

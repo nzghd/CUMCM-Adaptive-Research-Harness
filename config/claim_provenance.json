@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "version": "5.1.0",
+  "claim_types": {
+    "convergence_guarantee": {
+      "allowed_evidence_types": [
+        "cited_theorem_conditions_verified",
+        "formal_proof",
+        "theorem_proof"
+      ],
+      "recommended_downgrade": "在所测试初值、容差和随机种子下观察到数值收敛。"
+    },
+    "global_optimum": {
+      "allowed_evidence_types": [
+        "analytic_proof",
+        "branch_and_bound_certificate",
+        "certified_interval",
+        "convexity_plus_kkt",
+        "exhaustive_enumeration",
+        "solver_optimal_certificate"
+      ],
+      "recommended_downgrade": "在当前算法、初值和计算预算下得到的最佳可行解为……"
+    },
+    "optimality_gap": {
+      "allowed_evidence_types": [
+        "branch_and_bound_certificate",
+        "solver_primal_dual_certificate",
+        "valid_upper_and_lower_bounds"
+      ],
+      "recommended_downgrade": "相对当前参考界的数值差距为……；除非界已认证，否则不称最优性间隙。"
+    },
+    "proof_claim": {
+      "allowed_evidence_types": [
+        "analytic_proof",
+        "certified_interval",
+        "exhaustive_enumeration",
+        "formal_proof",
+        "theorem_conditions_verified"
+      ],
+      "recommended_downgrade": "上述计算/实验支持该结论，但不构成一般性证明。"
+    },
+    "rigorous_lower_bound": {
+      "allowed_evidence_types": [
+        "analytic_proof",
+        "certified_interval",
+        "exhaustive_enumeration",
+        "relaxation_bound",
+        "solver_dual_bound"
+      ],
+      "recommended_downgrade": "当前构造得到的可行值/经验参考下包络为……"
+    },
+    "rigorous_upper_bound": {
+      "allowed_evidence_types": [
+        "analytic_proof",
+        "certified_interval",
+        "exhaustive_enumeration",
+        "relaxation_bound",
+        "solver_dual_bound"
+      ],
+      "recommended_downgrade": "在当前可行搜索区域/离散候选集合中观察到的参考上包络为……"
+    },
+    "robustness_guarantee": {
+      "allowed_evidence_types": [
+        "certified_robust_bound",
+        "exhaustive_uncertainty_set",
+        "robust_counterpart_proof"
+      ],
+      "recommended_downgrade": "在所测试扰动/场景范围内表现稳定。"
+    },
+    "stability_guarantee": {
+      "allowed_evidence_types": [
+        "certified_interval",
+        "lyapunov_proof",
+        "spectral_proof",
+        "theorem_proof"
+      ],
+      "recommended_downgrade": "在所测试扰动范围内未观察到失稳。"
+    },
+    "statistical_significance": {
+      "allowed_evidence_types": [
+        "bayesian_posterior_contrast",
+        "bootstrap_ci",
+        "hypothesis_test",
+        "permutation_test"
+      ],
+      "recommended_downgrade": "在当前样本与指标上数值更优；尚未完成显著性检验。"
+    },
+    "unique_solution": {
+      "allowed_evidence_types": [
+        "analytic_proof",
+        "exhaustive_certificate",
+        "formal_proof",
+        "strict_convexity"
+      ],
+      "recommended_downgrade": "在所测试范围内未发现等价解；唯一性尚未证明。"
+    }
+  },
+  "weak_evidence_types": [
+    "empirical_only",
+    "finite_sampling",
+    "heuristic_search",
+    "llm_judgment",
+    "numerical_search",
+    "single_run",
+    "visual_inspection"
+  ],
+  "note": "Canonical strong-claim provenance registry. Runtime code must consume this file rather than mirror these rules. Passing provenance checks does not prove the claim; it verifies that the recorded evidence type is appropriate for the wording."
+}

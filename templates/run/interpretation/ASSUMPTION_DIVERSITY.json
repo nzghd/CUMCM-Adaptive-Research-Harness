@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "candidate_count": 0,
+  "dimension_count": 0,
+  "all_unique_signatures": 0,
+  "interpretation_unique_signatures": 0,
+  "model_unique_signatures": 0,
+  "algorithm_unique_signatures": 0,
+  "algorithm_diversity_present": false,
+  "shared_dimensions": {},
+  "variable_dimensions": {},
+  "shared_structural_dimensions": {},
+  "layer_diversity": {},
+  "warnings": [],
+  "generated_at": ""
+}

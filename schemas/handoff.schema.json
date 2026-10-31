@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/handoff.schema.json",
+  "title": "Fresh-Agent Relay Handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "round",
+    "status",
+    "summary",
+    "evidence",
+    "artifacts",
+    "commands_and_results",
+    "assumptions_added",
+    "next_steps",
+    "blockers",
+    "do_not_repeat",
+    "workspace_truth",
+    "next_bounded_task",
+    "stop_condition",
+    "completed"
+  ],
+  "properties": {
+    "round": {"type": "integer", "minimum": 1},
+    "status": {"enum": ["continue", "complete", "blocked"]},
+    "summary": {"type": "string"},
+    "evidence": {"type": "array"},
+    "artifacts": {"type": "array"},
+    "commands_and_results": {"type": "array"},
+    "assumptions_added": {"type": "array"},
+    "next_steps": {"type": "array"},
+    "blockers": {"type": "array"},
+    "do_not_repeat": {"type": "array"},
+    "workspace_truth": {"type": "array"},
+    "next_bounded_task": {"type": "string"},
+    "stop_condition": {"type": "string"},
+    "completed": {"type": "boolean"}
+  }
+}

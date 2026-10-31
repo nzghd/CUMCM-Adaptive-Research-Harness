@@ -1,0 +1,13 @@
+CUMCM Adaptive Research Harness v5.1
+
+1. Put problem files in inputs/problem/ and data/attachments in inputs/data/.
+2. Run: python .\tools\runtime.py check
+3. Run: python .\tools\self_test_v51.py
+4. Initialize with tools/harness.py init, then tools/v51_orchestrator.py init.
+5. Interpretation first: semantics -> structural forks -> assumption fingerprints -> branch probes -> human decision.
+6. Mathematics second: formulation -> derivation -> parameter provenance -> numerical method -> obligations -> equation/code/evidence mapping.
+7. Experiments and the evidence-first paper pipeline remain based on v4.1.
+8. Before G5: fresh-context blind review -> fine-grained consistency audit -> math-scope strong-claim scan; after the manuscript is stable, run the full-corpus strong-claim scan before paper approval/finalization.
+9. Read QUICKSTART_V5.1_WINDOWS.md and README.md before the first rehearsal.
+
+The self-tests do not call a model, network service, or paid API.

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/blind_review_meta.schema.json",
+  "title": "Blind Review Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "review_id",
+    "imported_at",
+    "reviewer_kind",
+    "session_id",
+    "fresh_context_attested",
+    "attested_by",
+    "note",
+    "packet_sha256",
+    "response_binding",
+    "response_sha256",
+    "response_path"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "review_id": {"type": "string", "minLength": 1},
+    "imported_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "reviewer_kind": {
+      "enum": [
+        "external-pro",
+        "external-codex",
+        "different-model",
+        "human",
+        "internal-same-session"
+      ]
+    },
+    "session_id": {"type": "string"},
+    "fresh_context_attested": {"type": "boolean"},
+    "attested_by": {"type": "string", "minLength": 1},
+    "note": {"type": "string"},
+    "packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "response_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packet_sha256", "run_id", "review_id"],
+      "properties": {
+        "packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "run_id": {"type": "string", "minLength": 1},
+        "review_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "response_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "response_path": {"type": "string", "minLength": 1}
+  }
+}

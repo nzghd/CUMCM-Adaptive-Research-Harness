@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/mathematical_obligation.schema.json",
+  "title": "Mathematical Obligation CSV Row",
+  "description": "Contract for one DictReader row from a module MATHEMATICAL_OBLIGATIONS.csv.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "obligation_id",
+    "severity",
+    "claim",
+    "claim_type",
+    "required_conditions",
+    "current_justification",
+    "symbolic_check",
+    "numerical_check",
+    "counterexample_test",
+    "proof_provenance",
+    "evidence_refs",
+    "status",
+    "resolution",
+    "reviewed_by",
+    "reviewed_at",
+    "notes"
+  ],
+  "properties": {
+    "obligation_id": {"type": "string", "minLength": 1},
+    "severity": {"enum": ["low", "medium", "high", "critical"]},
+    "claim": {"type": "string", "minLength": 1},
+    "claim_type": {"type": "string", "minLength": 1},
+    "required_conditions": {"type": "string", "minLength": 1},
+    "current_justification": {"type": "string"},
+    "symbolic_check": {"type": "string"},
+    "numerical_check": {"type": "string"},
+    "counterexample_test": {"type": "string"},
+    "proof_provenance": {"type": "string"},
+    "evidence_refs": {"type": "string"},
+    "status": {
+      "enum": ["open", "discharged", "downgraded", "rejected", "not_applicable"]
+    },
+    "resolution": {"type": "string"},
+    "reviewed_by": {"type": "string"},
+    "reviewed_at": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["discharged", "downgraded", "rejected", "not_applicable"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "resolution": {"type": "string", "minLength": 1},
+          "reviewed_by": {"type": "string", "minLength": 1},
+          "reviewed_at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          }
+        }
+      }
+    }
+  ]
+}

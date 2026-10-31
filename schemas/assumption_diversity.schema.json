@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/assumption_diversity.schema.json",
+  "title": "Assumption Diversity Analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidate_count",
+    "dimension_count",
+    "all_unique_signatures",
+    "interpretation_unique_signatures",
+    "model_unique_signatures",
+    "algorithm_unique_signatures",
+    "algorithm_diversity_present",
+    "shared_dimensions",
+    "variable_dimensions",
+    "shared_structural_dimensions",
+    "layer_diversity",
+    "warnings",
+    "generated_at"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "candidate_count": {"type": "integer", "minimum": 0},
+    "dimension_count": {"type": "integer", "minimum": 0},
+    "all_unique_signatures": {"type": "integer", "minimum": 0},
+    "interpretation_unique_signatures": {"type": "integer", "minimum": 0},
+    "model_unique_signatures": {"type": "integer", "minimum": 0},
+    "algorithm_unique_signatures": {"type": "integer", "minimum": 0},
+    "algorithm_diversity_present": {"type": "boolean"},
+    "shared_dimensions": {"type": "object"},
+    "variable_dimensions": {"type": "object"},
+    "shared_structural_dimensions": {"type": "object"},
+    "layer_diversity": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string"}
+  }
+}

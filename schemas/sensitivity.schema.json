@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/sensitivity.schema.json",
+  "title": "Sensitivity CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sensitivity_id",
+    "kind",
+    "target",
+    "alternatives_or_range",
+    "metric",
+    "experiment_id",
+    "evidence_path",
+    "observed_effect",
+    "effect_pct",
+    "status",
+    "verified_by",
+    "verified_at",
+    "waiver_reason",
+    "notes"
+  ],
+  "properties": {
+    "sensitivity_id": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["parameter", "structural"]},
+    "target": {"type": "string", "minLength": 1},
+    "alternatives_or_range": {"type": "string", "minLength": 1},
+    "metric": {"type": "string", "minLength": 1},
+    "experiment_id": {"type": "string"},
+    "evidence_path": {"type": "string"},
+    "observed_effect": {"type": "string"},
+    "effect_pct": {"type": "string"},
+    "status": {
+      "enum": ["planned", "running", "verified", "failed", "accepted-risk", "not-applicable"]
+    },
+    "verified_by": {"type": "string"},
+    "verified_at": {"type": "string"},
+    "waiver_reason": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "verified"}}},
+      "then": {
+        "properties": {
+          "evidence_path": {"minLength": 1},
+          "observed_effect": {"minLength": 1},
+          "verified_by": {"minLength": 1},
+          "verified_at": {
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["accepted-risk", "not-applicable"]}}},
+      "then": {
+        "properties": {
+          "verified_by": {"minLength": 1},
+          "verified_at": {
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          },
+          "waiver_reason": {"minLength": 1}
+        }
+      }
+    }
+  ]
+}

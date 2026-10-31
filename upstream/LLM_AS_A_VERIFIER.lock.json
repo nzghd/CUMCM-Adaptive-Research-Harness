@@ -1,0 +1,9 @@
+{
+  "name": "llm-as-a-verifier/llm-as-a-verifier",
+  "repository": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+  "commit": "8db8a114355a9d7fdf9a8d1d5c87f6aeebd18770",
+  "package": "llm-verifier",
+  "version": "0.2.0",
+  "license": "MIT",
+  "checked_at": "2026-08-31"
+}

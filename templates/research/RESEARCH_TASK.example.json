@@ -1,0 +1,14 @@
+{
+  "id": "TASK_001",
+  "type": "explore|deepen|review|experiment|integrate|red-team|paper-audit",
+  "title": "",
+  "purpose": "",
+  "target": "Q1|IDEA_001|MOD_001|CLAIM_001",
+  "resource": "codex|manual-pro|api|human|local-python",
+  "priority": "low|medium|high|critical",
+  "depends_on": [],
+  "status": "queued",
+  "artifacts": [],
+  "created_at": "",
+  "completed_at": null
+}

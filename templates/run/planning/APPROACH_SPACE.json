@@ -1,0 +1,7 @@
+{
+  "problem_nodes": [],
+  "candidate_families": [],
+  "missing_information": [],
+  "families_to_avoid_without_evidence": [],
+  "stop_rule": "当主要问题节点被实质不同的方法覆盖，且连续追加不再增加新族时停止宽度搜索。"
+}

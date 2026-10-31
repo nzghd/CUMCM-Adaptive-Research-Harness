@@ -1,0 +1,95 @@
+{
+  "version": "5.1.0",
+  "profile": "cumcm-default",
+  "language": "zh-CN",
+  "description": "Default evidence-first manuscript structure for CUMCM-style mathematical modeling papers. Teams may rename or split sections when the problem requires it.",
+  "trace_tag_format": "<!-- CLAIM:{claim_id} -->",
+  "sections": [
+    {
+      "id": "abstract",
+      "title": "摘要",
+      "order": 10,
+      "required": true,
+      "purpose": "用极少篇幅交代问题、核心方法、关键定量结果、验证与结论边界；摘要最后写。"
+    },
+    {
+      "id": "problem_restatement",
+      "title": "问题重述",
+      "order": 20,
+      "required": true,
+      "purpose": "准确重述任务、输入输出和小问关系，不加入尚未声明的假设。"
+    },
+    {
+      "id": "problem_analysis",
+      "title": "问题分析",
+      "order": 30,
+      "required": true,
+      "purpose": "解释各小问的结构、难点、依赖和总体求解路线，形成全文叙事主线。"
+    },
+    {
+      "id": "assumptions",
+      "title": "模型假设",
+      "order": 40,
+      "required": true,
+      "purpose": "仅列实际被模型使用且可解释的假设，注明适用范围与可能影响。"
+    },
+    {
+      "id": "symbols",
+      "title": "符号说明",
+      "order": 50,
+      "required": true,
+      "purpose": "统一列出核心符号、含义、单位和作用域，避免同符异义和单位漂移。"
+    },
+    {
+      "id": "model_and_solution",
+      "title": "模型建立与求解",
+      "order": 60,
+      "required": true,
+      "purpose": "按问题依赖组织模型、推导、算法和求解过程；可由 paper_architect 按小问拆成子节。"
+    },
+    {
+      "id": "validation_and_results",
+      "title": "模型检验与结果分析",
+      "order": 70,
+      "required": true,
+      "purpose": "报告真实实验、基线、敏感性、误差、稳健性、约束可行性和关键结果，不得用叙述替代证据。"
+    },
+    {
+      "id": "evaluation_and_extension",
+      "title": "模型评价、改进与推广",
+      "order": 80,
+      "required": true,
+      "purpose": "基于已验证事实讨论优缺点、失效条件、改进方向与可迁移范围。"
+    },
+    {
+      "id": "ai_usage_declaration",
+      "title": "AI工具使用声明",
+      "order": 85,
+      "required": true,
+      "purpose": "根据当前 AI 使用日志，在参考文献前逐字采用官方未使用或已使用声明之一；不得预先假定未使用。"
+    },
+    {
+      "id": "references",
+      "title": "参考文献",
+      "order": 90,
+      "required": true,
+      "purpose": "只列实际在正文中使用且已登记到 SOURCE_LEDGER 的来源。"
+    },
+    {
+      "id": "appendix",
+      "title": "附录",
+      "order": 100,
+      "required": false,
+      "purpose": "放置必要的补充推导、代码说明、额外表格或其他不宜进入正文的材料。"
+    }
+  ],
+  "writing_rules": [
+    "科学事实只能来自冻结后的 problem/data/synthesis/code/results/figures/evidence 等产物。",
+    "核心结论必须映射到 CLAIM_EVIDENCE_LEDGER 中的 claim_id，并在对应 section 文件中保留 trace tag。",
+    "所有数字、单位、图表、参数和比较结论必须能追溯到文件或来源；不得凭语言模型补数。",
+    "方法章节写清变量、目标、约束、方程、算法步骤和必要的复杂度或求解设置。",
+    "结果章节优先报告可复算指标、基线和失败边界，而不是使用‘显著提升’‘效果很好’等无证据形容词。",
+    "摘要最后写，且摘要中的每个定量结果必须已在正文出现并通过证据审计。",
+    "参考文献不得由模型凭记忆补全；只允许使用 SOURCE_LEDGER 中已核验条目。"
+  ]
+}

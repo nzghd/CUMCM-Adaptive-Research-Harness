@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mathematical Module Specification",
+  "type": "object",
+  "required": ["schema_version", "module_id", "title", "question_ids", "method_families", "status"],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "module_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "question_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "method_families": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "status": {"enum": ["draft", "approved", "implemented", "verified", "rejected"]},
+    "requires_code": {"type": "boolean"},
+    "requires_parameters": {"type": "boolean"},
+    "interpretation_forks": {"type": "array", "items": {"type": "string"}}
+  }
+}

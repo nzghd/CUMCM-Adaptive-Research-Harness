@@ -1,0 +1,17 @@
+# Release manifests hash exact bytes, including line endings.
+# Preserve the source archive's bytes on every operating system.
+* -text
+
+# Still show readable diffs for the project's text formats.
+*.py diff
+*.md diff
+*.json diff
+*.jsonl diff
+*.csv diff
+*.toml diff
+*.yaml diff
+*.yml diff
+*.ps1 diff
+*.sh diff
+*.txt diff
+*.sha256 diff

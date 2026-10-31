@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/no_source_attestation.schema.json",
+  "title": "No External Source Attestation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "attested_at",
+    "attested_by",
+    "reason",
+    "source_count",
+    "source_ledger_path",
+    "source_ledger_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "attested_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "attested_by": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 10},
+    "source_count": {"const": 0},
+    "source_ledger_path": {"const": "sources/SOURCE_LEDGER.csv"},
+    "source_ledger_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

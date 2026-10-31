@@ -1,0 +1,69 @@
+{
+  "version": "5.1.0",
+  "runtimes": {
+    "codex": {
+      "kind": "native-coding-agent",
+      "project_rules": "AGENTS.md",
+      "agent_dir": ".codex/agents",
+      "skill_dir": ".agents/skills",
+      "launch_command": "codex",
+      "provider": "openai",
+      "supports_subagents": true,
+      "supports_workspace_actions": true,
+      "notes": "Default backward-compatible runtime. Agent definitions are generated from config/agent_roles.json."
+    },
+    "claude-code": {
+      "kind": "native-coding-agent",
+      "project_rules": "CLAUDE.md",
+      "agent_dir": ".claude/agents",
+      "skill_dir": ".claude/skills",
+      "launch_command": "claude",
+      "provider": "anthropic",
+      "supports_subagents": true,
+      "supports_workspace_actions": true,
+      "notes": "Project subagents use .claude/agents/*.md and project skills use .claude/skills/*/SKILL.md."
+    },
+    "claude-code-deepseek": {
+      "kind": "native-coding-agent",
+      "base_runtime": "claude-code",
+      "project_rules": "CLAUDE.md",
+      "agent_dir": ".claude/agents",
+      "skill_dir": ".claude/skills",
+      "launch_command": "scripts/start_claude_deepseek.ps1",
+      "provider": "deepseek",
+      "supports_subagents": true,
+      "supports_workspace_actions": true,
+      "notes": "Claude Code runtime with DeepSeek's Anthropic-compatible endpoint. Requires DEEPSEEK_API_KEY and separate DeepSeek API billing."
+    },
+    "direct-api": {
+      "kind": "bounded-packet-api",
+      "project_rules": "RUNTIME_RULES.md",
+      "provider": "selectable",
+      "supports_subagents": false,
+      "supports_workspace_actions": false,
+      "notes": "tools/provider_call.py can run one canonical role against an explicit text-file packet. It does not expose arbitrary shell/file tools, so use it for bounded research or audits rather than full autonomous coding."
+    }
+  },
+  "providers": {
+    "openai": {
+      "api_key_env": "OPENAI_API_KEY",
+      "default_model": "gpt-5.6-sol",
+      "python_package": "openai",
+      "protocol": "responses"
+    },
+    "anthropic": {
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "default_model": "claude-sonnet-5",
+      "python_package": "anthropic",
+      "protocol": "messages"
+    },
+    "deepseek": {
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "default_model": "deepseek-v4-pro",
+      "python_package": "openai",
+      "base_url": "https://api.deepseek.com",
+      "anthropic_base_url": "https://api.deepseek.com/anthropic",
+      "protocol": "openai-compatible-chat"
+    }
+  }
+}

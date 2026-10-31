@@ -1,0 +1,10 @@
+{
+  "upstream": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+  "pinned_commit": "8db8a114355a9d7fdf9a8d1d5c87f6aeebd18770",
+  "package_version": "0.2.0",
+  "license": "MIT",
+  "paper": "https://arxiv.org/abs/2607.05391",
+  "website": "https://llm-as-a-verifier.com/",
+  "known_diagnostic": "https://github.com/llm-as-a-verifier/llm-as-a-verifier/issues/5",
+  "integration_policy": "Do not modify upstream core; call its public select/compare/track APIs."
+}

@@ -1,0 +1,76 @@
+{
+  "time": {
+    "total_hours": 72,
+    "started_at": null,
+    "deadline": null
+  },
+  "human_review": {
+    "max_hours": 18,
+    "used_hours": 0
+  },
+  "codex": {
+    "enabled": true,
+    "max_concurrent_threads": 4,
+    "logged_tasks": 0
+  },
+  "manual_pro": {
+    "enabled": true,
+    "max_dialogues": 6,
+    "used_dialogues": 0
+  },
+  "openai_api": {
+    "enabled": false,
+    "max_usd": 0.0,
+    "used_usd": 0.0,
+    "default_model": "gpt-5.6-sol",
+    "max_concurrent_subagents": 3,
+    "call_count": 0,
+    "usage_records": []
+  },
+  "exploration": {
+    "max_batches": 3,
+    "used_batches": 0,
+    "min_new_families_to_continue": 1
+  },
+  "complexity": {
+    "max_deep_modules": 4,
+    "max_models_in_final_paper": 3
+  },
+  "agent_runtime": {
+    "primary": "codex",
+    "max_concurrent_agents": 4,
+    "logged_tasks": 0
+  },
+  "claude_code": {
+    "enabled": true,
+    "max_concurrent_agents": 4,
+    "logged_tasks": 0
+  },
+  "api_providers": {
+    "openai": {
+      "enabled": false,
+      "max_usd": 0.0,
+      "used_usd": 0.0,
+      "default_model": "gpt-5.6-sol",
+      "call_count": 0,
+      "usage_records": []
+    },
+    "anthropic": {
+      "enabled": false,
+      "max_usd": 0.0,
+      "used_usd": 0.0,
+      "default_model": "claude-sonnet-5",
+      "call_count": 0,
+      "usage_records": []
+    },
+    "deepseek": {
+      "enabled": false,
+      "max_usd": 0.0,
+      "used_usd": 0.0,
+      "default_model": "deepseek-v4-pro",
+      "call_count": 0,
+      "usage_records": []
+    }
+  },
+  "version": "5.1.0"
+}

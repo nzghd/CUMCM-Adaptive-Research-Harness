@@ -1,0 +1,2 @@
+# Locked official LLM-as-a-Verifier source used by Faithful mode.
+git+https://github.com/llm-as-a-verifier/llm-as-a-verifier.git@8db8a114355a9d7fdf9a8d1d5c87f6aeebd18770

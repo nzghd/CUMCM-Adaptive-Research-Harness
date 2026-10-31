@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/paper_citation_register.schema.json",
+  "title": "Paper Citation Register CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "citation_id",
+    "source_id",
+    "claim_or_context",
+    "paper_location",
+    "verified",
+    "verified_by",
+    "notes"
+  ],
+  "properties": {
+    "citation_id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "claim_or_context": {"type": "string", "minLength": 1},
+    "paper_location": {"type": "string", "minLength": 1},
+    "verified": {"enum": ["true", "false"]},
+    "verified_by": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"verified": {"const": "true"}}},
+      "then": {
+        "properties": {
+          "verified_by": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

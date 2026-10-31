@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/paper_claim_map.schema.json",
+  "title": "Paper Claim Map CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "claim_text",
+    "is_core",
+    "target_section",
+    "evidence_status",
+    "trace_tag_status",
+    "notes"
+  ],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "claim_text": {"type": "string", "minLength": 1},
+    "is_core": {"enum": ["true", "false"]},
+    "target_section": {"type": "string"},
+    "evidence_status": {"enum": ["missing", "recorded", "verified"]},
+    "trace_tag_status": {"enum": ["pending", "present", "verified"]},
+    "notes": {"type": "string"}
+  }
+}

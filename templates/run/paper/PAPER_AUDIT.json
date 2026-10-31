@@ -1,0 +1,10 @@
+{
+  "status": "pending",
+  "checked_at": "",
+  "checked_by": "",
+  "blockers": [],
+  "warnings": [],
+  "notes": "[DRAFT_REQUIRED]",
+  "draft_sha256": "",
+  "freeze_manifest_sha256": ""
+}

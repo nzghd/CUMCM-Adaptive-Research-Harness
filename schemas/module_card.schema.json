@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/module_card.schema.json",
+  "title": "Module Card",
+  "description": "Accepts the base research-module card and the structured mathematical-module card produced by current tools.",
+  "oneOf": [
+    {"$ref": "#/$defs/research_module"},
+    {"$ref": "#/$defs/mathematical_module"}
+  ],
+  "$defs": {
+    "string_array": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "research_module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "id",
+        "source_ideas",
+        "target_nodes",
+        "purpose",
+        "variables_and_units",
+        "equations_or_algorithm",
+        "parameter_estimation",
+        "interfaces",
+        "baseline",
+        "implementation_path",
+        "validation_protocol",
+        "failure_modes",
+        "evidence_ids",
+        "human_owner",
+        "created_at",
+        "status"
+      ],
+      "properties": {
+        "schema_version": {"type": "integer", "minimum": 1},
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "source_ideas": {"$ref": "#/$defs/string_array"},
+        "target_nodes": {"$ref": "#/$defs/string_array"},
+        "purpose": {"type": "string"},
+        "variables_and_units": {"type": "array"},
+        "equations_or_algorithm": {"type": "string"},
+        "parameter_estimation": {"type": "string"},
+        "interfaces": {
+          "type": "object",
+          "required": ["inputs", "outputs"],
+          "properties": {
+            "inputs": {"type": "array"},
+            "outputs": {"type": "array"}
+          }
+        },
+        "baseline": {"type": "string"},
+        "implementation_path": {"type": "string"},
+        "validation_protocol": {"type": "array"},
+        "failure_modes": {"type": "array"},
+        "evidence_ids": {"$ref": "#/$defs/string_array"},
+        "human_owner": {"type": "string"},
+        "created_at": {"type": "string"},
+        "status": {"type": "string", "minLength": 1}
+      }
+    },
+    "mathematical_module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "id",
+        "title",
+        "source_ideas",
+        "target_nodes",
+        "method_families",
+        "formulation_summary",
+        "equations_or_algorithm",
+        "assumptions",
+        "parameters",
+        "validation_plan",
+        "baseline",
+        "risks",
+        "status"
+      ],
+      "properties": {
+        "schema_version": {"type": "integer", "minimum": 1},
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "source_ideas": {"$ref": "#/$defs/string_array"},
+        "target_nodes": {"$ref": "#/$defs/string_array"},
+        "method_families": {"$ref": "#/$defs/string_array"},
+        "formulation_summary": {"type": "string"},
+        "equations_or_algorithm": {"type": "string"},
+        "assumptions": {"type": "array"},
+        "parameters": {"type": "array"},
+        "validation_plan": {"type": "array"},
+        "baseline": {"type": "string"},
+        "risks": {"type": "array"},
+        "status": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

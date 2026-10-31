@@ -1,0 +1,37 @@
+{
+  "plan_id": "TP001",
+  "goal": "TODO",
+  "created_by": "meta_scientist",
+  "parallelism": 4,
+  "workstreams": [
+    {
+      "id": "W01",
+      "agent": "independent_explorer",
+      "backend": "codex",
+      "objective": "TODO",
+      "method_prior": "TODO",
+      "independence_group": "initial_search",
+      "read_scope": [
+        "inputs/",
+        "problem/",
+        "data/DATA_AUDIT.md"
+      ],
+      "write_scope": "workstreams/W01/",
+      "expected_outputs": [
+        "IDEA_CARD.md"
+      ],
+      "stop_condition": "形成一条可证伪的独立 Idea Card 或证明该先验不适用。",
+      "budget": {
+        "agent_threads": 1,
+        "human_review_minutes": 15
+      },
+      "expected_information_gain": "TODO"
+    }
+  ],
+  "wave_plan": [
+    [
+      "W01"
+    ]
+  ],
+  "notes": "不得为了凑固定数量而复制角色。"
+}

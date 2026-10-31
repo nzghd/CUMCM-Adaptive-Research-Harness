@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/interpretation_probe.schema.json",
+  "title": "Interpretation Probe CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "probe_id",
+    "fork_id",
+    "option_id",
+    "probe_type",
+    "command_or_method",
+    "artifact_path",
+    "metric",
+    "result",
+    "status",
+    "verified_by",
+    "verified_at",
+    "notes"
+  ],
+  "properties": {
+    "probe_id": {"type": "string", "minLength": 1},
+    "fork_id": {"type": "string", "minLength": 1},
+    "option_id": {"type": "string", "minLength": 1},
+    "probe_type": {"type": "string", "minLength": 1},
+    "command_or_method": {"type": "string", "minLength": 1},
+    "artifact_path": {"type": "string"},
+    "metric": {"type": "string"},
+    "result": {"type": "string"},
+    "status": {"enum": ["planned", "running", "verified", "failed"]},
+    "verified_by": {"type": "string"},
+    "verified_at": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "verified"}}},
+      "then": {
+        "properties": {
+          "verified_by": {"minLength": 1},
+          "verified_at": {
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          }
+        },
+        "anyOf": [
+          {"properties": {"artifact_path": {"minLength": 1}}},
+          {"properties": {"result": {"minLength": 1}}}
+        ]
+      }
+    }
+  ]
+}

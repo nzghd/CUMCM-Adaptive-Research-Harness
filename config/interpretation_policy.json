@@ -1,0 +1,82 @@
+{
+  "version": "5.1.0",
+  "impact_weights": {
+    "low": 1,
+    "medium": 2,
+    "high": 3,
+    "critical": 4
+  },
+  "uncertainty_weights": {
+    "low": 1,
+    "medium": 2,
+    "high": 3,
+    "unknown": 3
+  },
+  "irreversibility_weights": {
+    "low": 1,
+    "medium": 2,
+    "high": 3
+  },
+  "nondelegable_score_threshold": 18,
+  "always_nondelegable_if": [
+    "impact=critical",
+    "changes_objective=true",
+    "changes_feasible_set=true",
+    "dimension in target_geometry,time_semantics,aggregation_rule,uncertainty_semantics",
+    "expected_result_change_pct>=10"
+  ],
+  "forbidden_deciders": [
+    "AUTO",
+    "DEFAULT",
+    "AGENT",
+    "SYSTEM",
+    "ORCHESTRATOR",
+    "CODEX",
+    "GPT",
+    "CLAUDE",
+    "DEEPSEEK"
+  ],
+  "structural_probe_types": [
+    "structural",
+    "branch-recompute",
+    "cheap-prototype",
+    "small-case-exact",
+    "geometry-replay"
+  ],
+  "dimension_layers": {
+    "interpretation": [
+      "target_geometry",
+      "target_definition",
+      "time_semantics",
+      "aggregation_rule",
+      "uncertainty_semantics",
+      "feasibility_definition",
+      "objective_definition",
+      "observation_semantics",
+      "coordinate_semantics",
+      "event_definition"
+    ],
+    "model_structure": [
+      "model_family",
+      "state_representation",
+      "coupling_structure",
+      "decision_structure",
+      "stochastic_structure",
+      "constraint_structure",
+      "dynamics_structure",
+      "dependency_structure",
+      "spatial_representation",
+      "temporal_representation"
+    ],
+    "algorithm": [
+      "algorithm",
+      "solver",
+      "optimizer",
+      "search_method",
+      "numerical_method",
+      "discretization",
+      "initialization",
+      "hyperparameter_strategy"
+    ]
+  }
+}

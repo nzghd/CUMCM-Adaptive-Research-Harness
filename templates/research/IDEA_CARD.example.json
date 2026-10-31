@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "IDEA_001",
+  "title": "",
+  "author_resource": "codex|manual-pro|api|human",
+  "target_nodes": [
+    "Q1"
+  ],
+  "summary": "",
+  "method_families": [
+    "baseline"
+  ],
+  "core_assumptions": [],
+  "mathematical_objects": [],
+  "data_requirements": [],
+  "validation_plan": [],
+  "falsification_test": "",
+  "main_risks": [],
+  "estimated_effort_hours": 1.0,
+  "novelty_relative_to_pool": "unknown",
+  "status": "proposed"
+}

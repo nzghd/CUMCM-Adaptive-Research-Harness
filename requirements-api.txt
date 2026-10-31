@@ -1,0 +1,4 @@
+# Optional direct API / OpenAI burst adapters.
+# Core harness tools remain standard-library-only.
+openai
+anthropic

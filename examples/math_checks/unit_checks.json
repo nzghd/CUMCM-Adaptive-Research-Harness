@@ -1,0 +1,13 @@
+{
+  "definitions": [
+    "meter = [length]",
+    "second = [time]"
+  ],
+  "checks": [
+    {
+      "id": "UNIT-001",
+      "expression": "10 * meter / second",
+      "expected_dimensionality": "[length] / [time]"
+    }
+  ]
+}

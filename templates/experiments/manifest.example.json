@@ -1,0 +1,26 @@
+{
+  "run_id": "YOUR_RUN",
+  "experiments": [
+    {
+      "id": "EXP001",
+      "module_id": "MOD_001",
+      "description": "Baseline multi-seed experiment",
+      "command": [
+        "python",
+        "code/baseline.py",
+        "--seed",
+        "{seed}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "cwd": ".",
+      "seeds": [0, 1, 2, 3, 4],
+      "timeout_sec": 1800,
+      "expected_artifacts": [
+        "experiments/runs/EXP001/seed_{seed}/metrics.json"
+      ],
+      "metrics_file": "experiments/runs/EXP001/seed_{seed}/metrics.json",
+      "env": {}
+    }
+  ]
+}

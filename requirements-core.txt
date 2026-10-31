@@ -1,0 +1,5 @@
+# Core gate mechanics use the Python standard library. Typed final PDF
+# deliverables additionally require a real parser so arbitrary renamed bytes
+# cannot pass packaging checks.
+# Recommended interpreter: Python 3.10 or newer.
+pypdf>=3.0

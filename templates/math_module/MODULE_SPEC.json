@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "module_id": "MOD_XXX",
+  "title": "[DRAFT_REQUIRED]",
+  "question_ids": [],
+  "method_families": [],
+  "status": "draft",
+  "requires_code": true,
+  "requires_parameters": true,
+  "interpretation_forks": [],
+  "source_idea_ids": [],
+  "limitations": [],
+  "human_owner": ""
+}

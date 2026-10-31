@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/paper_section_quality_register.schema.json",
+  "title": "Paper Section Quality Register CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "section_id",
+    "purpose",
+    "required_claims",
+    "required_equations",
+    "required_figures",
+    "status",
+    "editor",
+    "notes"
+  ],
+  "properties": {
+    "section_id": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "required_claims": {"type": "string"},
+    "required_equations": {"type": "string"},
+    "required_figures": {"type": "string"},
+    "status": {"enum": ["planned", "drafting", "drafted", "reviewed", "final"]},
+    "editor": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"enum": ["reviewed", "final"]}}},
+      "then": {
+        "properties": {
+          "editor": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "id": "{{MODULE_ID}}",
+  "source_ideas": [],
+  "target_nodes": [
+    "{{QUESTION_IDS}}"
+  ],
+  "purpose": "{{TITLE}}",
+  "variables_and_units": [],
+  "equations_or_algorithm": "See FORMULATION.md and EQUATION_REGISTRY.csv",
+  "parameter_estimation": "See PARAMETER_IDENTIFICATION.md",
+  "interfaces": {
+    "inputs": [],
+    "outputs": []
+  },
+  "baseline": "See VALIDATION_PROTOCOL.md",
+  "implementation_path": "",
+  "validation_protocol": [],
+  "failure_modes": [],
+  "evidence_ids": [],
+  "human_owner": "",
+  "created_at": "{{CREATED_AT}}",
+  "status": "construction"
+}

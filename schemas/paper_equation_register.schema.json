@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/paper_equation_register.schema.json",
+  "title": "Paper Equation Register CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "equation_id",
+    "module_id",
+    "latex",
+    "meaning",
+    "section",
+    "source_ref",
+    "status",
+    "notes"
+  ],
+  "properties": {
+    "equation_id": {"type": "string", "minLength": 1},
+    "module_id": {"type": "string", "minLength": 1},
+    "latex": {"type": "string", "minLength": 1},
+    "meaning": {"type": "string", "minLength": 1},
+    "section": {"type": "string", "minLength": 1},
+    "source_ref": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "checked", "final"]},
+    "notes": {"type": "string"}
+  }
+}

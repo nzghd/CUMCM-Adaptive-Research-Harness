@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "version": "5.1.0",
+  "stages": [
+    {
+      "id": "interpretation",
+      "description": "Problem semantics, structural forks, assumption fingerprints and human decisions",
+      "input_globs": [
+        "interpretation/PROBLEM_SEMANTICS.md",
+        "interpretation/INTERPRETATION_FORKS.csv",
+        "interpretation/FORK_PROBES.csv",
+        "interpretation/ASSUMPTION_FINGERPRINTS.json",
+        "interpretation/DECISION_LOG.jsonl",
+        "interpretation/INTERPRETATION_AUDIT.md"
+      ],
+      "exclude_globs": []
+    },
+    {
+      "id": "structural_validation",
+      "description": "Structural sensitivity and branch probes, separate from parameter sweeps",
+      "input_globs": [
+        "sensitivity/STRUCTURAL_SENSITIVITY.csv",
+        "interpretation/INTERPRETATION_FORKS.csv",
+        "interpretation/FORK_PROBES.csv"
+      ],
+      "exclude_globs": []
+    },
+    {
+      "id": "mathematical_construction",
+      "description": "Formalization, derivation, parameters, numerical method and proof obligations",
+      "input_globs": [
+        "research/modules/**",
+        "interpretation/INTERPRETATION_FORKS.csv",
+        "code/**",
+        "results/**",
+        "experiments/**",
+        "evidence/CLAIM_EVIDENCE_LEDGER.csv",
+        "sources/SOURCE_LEDGER.csv"
+      ],
+      "exclude_globs": [
+        "research/modules/**/MATH_LINT.json"
+      ]
+    },
+    {
+      "id": "independent_review",
+      "description": "Fresh-context blind independent review",
+      "input_globs": [
+        "reviews/blind/**"
+      ],
+      "exclude_globs": [
+        "reviews/blind/**/VALIDATION.json"
+      ]
+    },
+    {
+      "id": "consistency",
+      "description": "Dimension-specific replay, mapping and tolerance checks",
+      "input_globs": [
+        "consistency/CONSISTENCY_MATRIX.csv",
+        "evidence/**",
+        "results/**",
+        "experiments/**"
+      ],
+      "exclude_globs": [
+        "consistency/CONSISTENCY_SUMMARY.json",
+        "consistency/CONSISTENCY_REPORT.md"
+      ]
+    },
+    {
+      "id": "strong_claim_audit",
+      "description": "Full-corpus proof/certificate provenance audit after manuscript sections are stable",
+      "input_globs": [
+        "claims/STRONG_CLAIMS.csv",
+        "claims/STRONG_CLAIM_SCAN.json",
+        "evidence/**"
+      ],
+      "exclude_globs": [
+        "claims/STRONG_CLAIM_AUDIT.json"
+      ]
+    },
+    {
+      "id": "paper_extension",
+      "description": "Evidence-bound abstract facts, equations, citations and technical-editing registers",
+      "input_globs": [
+        "paper/PAPER_PLAN.json",
+        "paper/PAPER_CLAIM_MAP.csv",
+        "paper/ABSTRACT_FACTS.json",
+        "paper/EQUATION_REGISTER.csv",
+        "paper/CITATION_REGISTER.csv",
+        "paper/SECTION_QUALITY_REGISTER.csv",
+        "paper/FIGURE_TABLE_REGISTER.csv",
+        "paper/TECHNICAL_STYLE_GUIDE.md",
+        "paper/sections/**",
+        "research/modules/*/MODULE_SPEC.json",
+        "research/modules/*/EQUATION_REGISTRY.csv",
+        "evidence/CLAIM_EVIDENCE_LEDGER.csv",
+        "sources/SOURCE_LEDGER.csv",
+        "claims/STRONG_CLAIMS.csv",
+        "FROZEN_MANIFEST.json"
+      ],
+      "exclude_globs": [
+        "paper/PAPER_V5_AUDIT.json"
+      ]
+    },
+    {
+      "id": "submission",
+      "description": "All v5.1 overlays plus the retained v4.1 paper/compliance pipeline",
+      "input_globs": [
+        "FROZEN_MANIFEST.json",
+        "paper/FINAL_MANUSCRIPT.md",
+        "paper/PAPER_BUILD.json",
+        "paper/PAPER_AUDIT.json",
+        "paper/ASSEMBLY_MANIFEST.json",
+        "ai/**",
+        "sources/**",
+        "deliverables/**"
+      ],
+      "exclude_globs": [
+        "deliverables/packages/**",
+        "deliverables/DELIVERY_MANIFEST.json"
+      ]
+    }
+  ],
+  "note": "Canonical ordered v5.1 stage registry. Runtime code must derive stage identity and order from this file."
+}

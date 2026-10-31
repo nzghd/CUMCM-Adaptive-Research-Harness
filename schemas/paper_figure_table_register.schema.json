@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/paper_figure_table_register.schema.json",
+  "title": "Paper Figure/Table Register CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "item_id",
+    "kind",
+    "title",
+    "path",
+    "source_claims",
+    "target_section",
+    "status",
+    "verified_by",
+    "notes"
+  ],
+  "properties": {
+    "item_id": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["", "figure", "table"]},
+    "title": {"type": "string"},
+    "path": {"type": "string"},
+    "source_claims": {"type": "string"},
+    "target_section": {"type": "string"},
+    "status": {"enum": ["planned", "draft", "used", "approved", "final", "excluded"]},
+    "verified_by": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"enum": ["used", "approved", "final"]}}},
+      "then": {
+        "properties": {
+          "kind": {"enum": ["figure", "table"]},
+          "title": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "source_claims": {"type": "string", "minLength": 1},
+          "target_section": {"type": "string", "minLength": 1},
+          "verified_by": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

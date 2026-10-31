@@ -1,0 +1,28 @@
+{
+  "criteria": [
+    {
+      "id": "correctness",
+      "description": "是否满足问题定义和硬约束？",
+      "weight": 3,
+      "hard_gate": true
+    },
+    {
+      "id": "evidence",
+      "description": "关键结论是否有可重复证据？",
+      "weight": 3,
+      "hard_gate": false
+    },
+    {
+      "id": "robustness",
+      "description": "对扰动、随机性和边界是否稳健？",
+      "weight": 2,
+      "hard_gate": false
+    },
+    {
+      "id": "simplicity",
+      "description": "在相近效果下是否更可解释、可复现？",
+      "weight": 1,
+      "hard_gate": false
+    }
+  ]
+}

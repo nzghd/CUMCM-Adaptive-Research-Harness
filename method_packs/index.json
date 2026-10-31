@@ -1,0 +1,45 @@
+{
+  "version": "5.1.0",
+  "packs": [
+    {
+      "id": "dynamic_programming",
+      "path": "method_packs/dynamic_programming.md"
+    },
+    {
+      "id": "geometric_kinematic",
+      "path": "method_packs/geometric_kinematic.md"
+    },
+    {
+      "id": "graph_network",
+      "path": "method_packs/graph_network.md"
+    },
+    {
+      "id": "lp_milp_nlp",
+      "path": "method_packs/lp_milp_nlp.md"
+    },
+    {
+      "id": "machine_learning",
+      "path": "method_packs/machine_learning.md"
+    },
+    {
+      "id": "multicriteria_decision",
+      "path": "method_packs/multicriteria_decision.md"
+    },
+    {
+      "id": "robust_multiobjective",
+      "path": "method_packs/robust_multiobjective.md"
+    },
+    {
+      "id": "statistical_inference",
+      "path": "method_packs/statistical_inference.md"
+    },
+    {
+      "id": "stochastic_simulation",
+      "path": "method_packs/stochastic_simulation.md"
+    },
+    {
+      "id": "time_series_state_space",
+      "path": "method_packs/time_series_state_space.md"
+    }
+  ]
+}

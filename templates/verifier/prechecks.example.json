@@ -1,0 +1,25 @@
+{
+  "A": {
+    "pass": true,
+    "checks": [
+      "code runs",
+      "constraints satisfied"
+    ],
+    "notes": ""
+  },
+  "B": {
+    "pass": true,
+    "checks": [
+      "code runs",
+      "constraints satisfied"
+    ],
+    "notes": ""
+  },
+  "C": {
+    "pass": false,
+    "checks": [
+      "code fails"
+    ],
+    "notes": "Excluded before LLM review"
+  }
+}

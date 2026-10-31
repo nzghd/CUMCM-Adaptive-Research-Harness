@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/interpretation_fork.schema.json",
+  "title": "Interpretation Fork CSV Row",
+  "description": "Contract for one DictReader row from interpretation/INTERPRETATION_FORKS.csv.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fork_id",
+    "dimension",
+    "question",
+    "options_json",
+    "impact",
+    "uncertainty",
+    "irreversibility",
+    "changes_objective",
+    "changes_feasible_set",
+    "expected_result_change_pct",
+    "structural_fork",
+    "nondelegable",
+    "risk_score",
+    "status",
+    "selected_option",
+    "decision_by",
+    "decision_at",
+    "evidence",
+    "reason",
+    "notes"
+  ],
+  "properties": {
+    "fork_id": {"type": "string", "minLength": 1},
+    "dimension": {"type": "string", "minLength": 1},
+    "question": {"type": "string", "minLength": 1},
+    "options_json": {"type": "string", "minLength": 2},
+    "impact": {"enum": ["low", "medium", "high", "critical"]},
+    "uncertainty": {"enum": ["low", "medium", "high", "unknown"]},
+    "irreversibility": {"enum": ["low", "medium", "high"]},
+    "changes_objective": {"enum": ["true", "false"]},
+    "changes_feasible_set": {"enum": ["true", "false"]},
+    "expected_result_change_pct": {
+      "oneOf": [
+        {"type": "string", "pattern": "^$|^-?[0-9]+(?:\\.[0-9]+)?$"},
+        {"type": "number"}
+      ]
+    },
+    "structural_fork": {"enum": ["true", "false"]},
+    "nondelegable": {"enum": ["true", "false"]},
+    "risk_score": {
+      "oneOf": [
+        {"type": "string", "pattern": "^[0-9]+$"},
+        {"type": "integer", "minimum": 0}
+      ]
+    },
+    "status": {"enum": ["open", "decided", "accepted-risk"]},
+    "selected_option": {"type": "string"},
+    "decision_by": {"type": "string"},
+    "decision_at": {"type": "string"},
+    "evidence": {"type": "string"},
+    "reason": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"enum": ["decided", "accepted-risk"]}}},
+      "then": {
+        "properties": {
+          "selected_option": {"minLength": 1},
+          "decision_by": {"minLength": 1},
+          "decision_at": {
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          },
+          "reason": {"minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "decided"}}},
+      "then": {"properties": {"evidence": {"minLength": 1}}}
+    }
+  ]
+}

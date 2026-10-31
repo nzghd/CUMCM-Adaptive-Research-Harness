@@ -1,0 +1,37 @@
+{
+  "session_id": "VERIFIER_LITE_001",
+  "problem_file": "runs/YOUR_RUN/problem/VERIFIER_PROBLEM.md",
+  "candidate_files": {
+    "A": "runs/YOUR_RUN/modes/reference-verifier-lite/candidates/A.txt",
+    "B": "runs/YOUR_RUN/modes/reference-verifier-lite/candidates/B.txt",
+    "C": "runs/YOUR_RUN/modes/reference-verifier-lite/candidates/C.txt"
+  },
+  "criteria": [
+    {
+      "id": "math",
+      "description": "Mathematical correctness under stated assumptions",
+      "weight": 0.35
+    },
+    {
+      "id": "coverage",
+      "description": "Coverage of the requested task",
+      "weight": 0.2
+    },
+    {
+      "id": "evidence",
+      "description": "Quality of executable or quantitative verification",
+      "weight": 0.25
+    },
+    {
+      "id": "clarity",
+      "description": "Auditability and clarity",
+      "weight": 0.2
+    }
+  ],
+  "prechecks_file": "runs/YOUR_RUN/modes/reference-verifier-lite/prechecks.json",
+  "pivots": 2,
+  "seed": 0,
+  "review_repeats_per_orientation": 1,
+  "temperature": 0.15,
+  "output_dir": "runs/YOUR_RUN/modes/reference-verifier-lite/session"
+}

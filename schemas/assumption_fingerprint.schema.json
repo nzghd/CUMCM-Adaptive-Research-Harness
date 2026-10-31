@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/assumption_fingerprint.schema.json",
+  "title": "Assumption Fingerprint Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "dimensions", "candidates", "updated_at"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "dimensions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "values", "source", "updated_at"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "values": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          },
+          "source": {"type": "string"},
+          "stage": {"type": "string"},
+          "updated_at": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "updated_at": {"type": ["string", "null"]}
+  }
+}

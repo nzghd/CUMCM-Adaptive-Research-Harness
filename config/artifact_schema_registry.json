@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "version": "5.1.0",
+  "artifacts": [
+    {
+      "id": "artifact-schema-registry-config",
+      "base": "project",
+      "glob": "config/artifact_schema_registry.json",
+      "format": "json",
+      "schema": "schemas/artifact_schema_registry.schema.json",
+      "stages": ["static", "submission"]
+    },
+    {
+      "id": "claim-provenance-config",
+      "base": "project",
+      "glob": "config/claim_provenance.json",
+      "format": "json",
+      "schema": "schemas/claim_provenance_config.schema.json",
+      "stages": ["static", "strong_claim_audit"]
+    },
+    {
+      "id": "consistency-dimensions-config",
+      "base": "project",
+      "glob": "config/consistency_dimensions.json",
+      "format": "json",
+      "schema": "schemas/consistency_dimensions_config.schema.json",
+      "stages": ["static", "consistency"]
+    },
+    {
+      "id": "v51-stage-registry-config",
+      "base": "project",
+      "glob": "config/v51_stage_registry.json",
+      "format": "json",
+      "schema": "schemas/v51_stage_registry_config.schema.json",
+      "stages": ["static", "submission"]
+    },
+    {
+      "id": "run-meta",
+      "base": "run",
+      "glob": "RUN_META.json",
+      "format": "json",
+      "schema": "schemas/run_meta.schema.json",
+      "stages": ["G0", "G7", "submission", "package"]
+    },
+    {
+      "id": "problem-graph",
+      "base": "run",
+      "glob": "problem/PROBLEM_GRAPH.json",
+      "format": "json",
+      "schema": "schemas/problem_graph.schema.json",
+      "stages": ["G0", "interpretation"]
+    },
+    {
+      "id": "team-plan",
+      "base": "run",
+      "glob": "planning/TEAM_PLAN.json",
+      "format": "json",
+      "schema": "schemas/team_plan.schema.json",
+      "stages": ["G1"]
+    },
+    {
+      "id": "idea-card",
+      "base": "run",
+      "glob": "research/ideas/*/IDEA_CARD.json",
+      "format": "json",
+      "schema": "schemas/idea_card.schema.json",
+      "stages": ["G1"]
+    },
+    {
+      "id": "focus-set",
+      "base": "run",
+      "glob": "selection/FOCUS_SET.json",
+      "format": "json",
+      "schema": "schemas/focus_set.schema.json",
+      "stages": ["G2"]
+    },
+    {
+      "id": "module-card",
+      "base": "run",
+      "glob": "research/modules/*/MODULE_CARD.json",
+      "format": "json",
+      "schema": "schemas/module_card.schema.json",
+      "stages": ["G2", "mathematical_construction"]
+    },
+    {
+      "id": "math-module-spec",
+      "base": "run",
+      "glob": "research/modules/*/MODULE_SPEC.json",
+      "format": "json",
+      "schema": "schemas/math_module_spec.schema.json",
+      "stages": ["mathematical_construction"]
+    },
+    {
+      "id": "mathematical-obligation",
+      "base": "run",
+      "glob": "research/modules/*/MATHEMATICAL_OBLIGATIONS.csv",
+      "format": "csv",
+      "schema": "schemas/mathematical_obligation.schema.json",
+      "producer_contract": "math_engine:OBLIGATION_FIELDS",
+      "stages": ["mathematical_construction"]
+    },
+    {
+      "id": "interpretation-fork",
+      "base": "run",
+      "glob": "interpretation/INTERPRETATION_FORKS.csv",
+      "format": "csv",
+      "schema": "schemas/interpretation_fork.schema.json",
+      "producer_contract": "interpretation_engine:FORK_FIELDS",
+      "stages": ["G0", "interpretation", "structural_validation"]
+    },
+    {
+      "id": "assumption-fingerprint",
+      "base": "run",
+      "glob": "interpretation/ASSUMPTION_FINGERPRINTS.json",
+      "format": "json",
+      "schema": "schemas/assumption_fingerprint.schema.json",
+      "stages": ["G0", "interpretation"]
+    },
+    {
+      "id": "assumption-diversity",
+      "base": "run",
+      "glob": "interpretation/ASSUMPTION_DIVERSITY.json",
+      "format": "json",
+      "schema": "schemas/assumption_diversity.schema.json",
+      "stages": ["G1", "interpretation"]
+    },
+    {
+      "id": "interpretation-probe",
+      "base": "run",
+      "glob": "interpretation/FORK_PROBES.csv",
+      "format": "csv",
+      "schema": "schemas/interpretation_probe.schema.json",
+      "producer_contract": "interpretation_engine:PROBE_FIELDS",
+      "stages": ["interpretation", "structural_validation"]
+    },
+    {
+      "id": "structural-sensitivity",
+      "base": "run",
+      "glob": "sensitivity/STRUCTURAL_SENSITIVITY.csv",
+      "format": "csv",
+      "schema": "schemas/sensitivity.schema.json",
+      "producer_contract": "sensitivity_engine:FIELDS",
+      "stages": ["G2", "structural_validation"]
+    },
+    {
+      "id": "parameter-sensitivity",
+      "base": "run",
+      "glob": "sensitivity/PARAMETER_SENSITIVITY.csv",
+      "format": "csv",
+      "schema": "schemas/sensitivity.schema.json",
+      "producer_contract": "sensitivity_engine:FIELDS",
+      "stages": ["G3"]
+    },
+    {
+      "id": "claim-evidence-ledger",
+      "base": "run",
+      "glob": "evidence/CLAIM_EVIDENCE_LEDGER.csv",
+      "format": "csv",
+      "schema": "schemas/claim_evidence_ledger.schema.json",
+      "producer_contract": "harness:CLAIM_FIELDS",
+      "stages": [
+        "G3",
+        "G5",
+        "G6",
+        "G7",
+        "mathematical_construction",
+        "strong_claim_audit",
+        "consistency",
+        "paper_extension",
+        "submission"
+      ]
+    },
+    {
+      "id": "source-ledger",
+      "base": "run",
+      "glob": "sources/SOURCE_LEDGER.csv",
+      "format": "csv",
+      "schema": "schemas/source_ledger.schema.json",
+      "producer_contract": "harness:SOURCE_FIELDS",
+      "stages": [
+        "G5",
+        "G6",
+        "G7",
+        "mathematical_construction",
+        "consistency",
+        "paper_extension",
+        "submission"
+      ]
+    },
+    {
+      "id": "blind-review-packet-manifest",
+      "base": "run",
+      "glob": "reviews/blind/*/packet/PACKET_MANIFEST.json",
+      "format": "json",
+      "schema": "schemas/blind_review_manifest.schema.json",
+      "stages": ["G5", "independent_review"]
+    },
+    {
+      "id": "blind-review-meta",
+      "base": "run",
+      "glob": "reviews/blind/*/REVIEW_META.json",
+      "format": "json",
+      "schema": "schemas/blind_review_meta.schema.json",
+      "stages": ["G5", "independent_review"]
+    },
+    {
+      "id": "strong-claim",
+      "base": "run",
+      "glob": "claims/STRONG_CLAIMS.csv",
+      "format": "csv",
+      "schema": "schemas/strong_claim.schema.json",
+      "producer_contract": "claim_guard:CLAIM_FIELDS",
+      "stages": ["G6", "strong_claim_audit"]
+    },
+    {
+      "id": "strong-claim-math",
+      "base": "run",
+      "glob": "claims/STRONG_CLAIMS_MATH.csv",
+      "format": "csv",
+      "schema": "schemas/strong_claim.schema.json",
+      "producer_contract": "claim_guard:CLAIM_FIELDS",
+      "stages": ["G5"]
+    },
+    {
+      "id": "strong-claim-scan",
+      "base": "run",
+      "glob": "claims/STRONG_CLAIM_SCAN.json",
+      "format": "json",
+      "schema": "schemas/strong_claim_scan.schema.json",
+      "stages": ["G6", "strong_claim_audit", "submission"]
+    },
+    {
+      "id": "strong-claim-scan-math",
+      "base": "run",
+      "glob": "claims/STRONG_CLAIM_SCAN_MATH.json",
+      "format": "json",
+      "schema": "schemas/strong_claim_scan.schema.json",
+      "stages": ["G5"]
+    },
+    {
+      "id": "paper-plan",
+      "base": "run",
+      "glob": "paper/PAPER_PLAN.json",
+      "format": "json",
+      "schema": "schemas/paper_plan.schema.json",
+      "stages": ["G6", "paper_extension"]
+    },
+    {
+      "id": "paper-claim-map",
+      "base": "run",
+      "glob": "paper/PAPER_CLAIM_MAP.csv",
+      "format": "csv",
+      "schema": "schemas/paper_claim_map.schema.json",
+      "producer_contract": "paper:CLAIM_MAP_FIELDS",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "paper-figure-table-register",
+      "base": "run",
+      "glob": "paper/FIGURE_TABLE_REGISTER.csv",
+      "format": "csv",
+      "schema": "schemas/paper_figure_table_register.schema.json",
+      "producer_contract": "paper:FIGURE_TABLE_FIELDS",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "abstract-facts",
+      "base": "run",
+      "glob": "paper/ABSTRACT_FACTS.json",
+      "format": "json",
+      "schema": "schemas/abstract_facts.schema.json",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "paper-equation-register",
+      "base": "run",
+      "glob": "paper/EQUATION_REGISTER.csv",
+      "format": "csv",
+      "schema": "schemas/paper_equation_register.schema.json",
+      "producer_contract": "paper_v5:EQUATION_FIELDS",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "paper-citation-register",
+      "base": "run",
+      "glob": "paper/CITATION_REGISTER.csv",
+      "format": "csv",
+      "schema": "schemas/paper_citation_register.schema.json",
+      "producer_contract": "paper_v5:CITATION_FIELDS",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "paper-section-quality-register",
+      "base": "run",
+      "glob": "paper/SECTION_QUALITY_REGISTER.csv",
+      "format": "csv",
+      "schema": "schemas/paper_section_quality_register.schema.json",
+      "producer_contract": "paper_v5:SECTION_FIELDS",
+      "stages": ["G6", "paper_extension", "submission"]
+    },
+    {
+      "id": "consistency-matrix",
+      "base": "run",
+      "glob": "consistency/CONSISTENCY_MATRIX.csv",
+      "format": "csv",
+      "schema": "schemas/consistency_matrix.schema.json",
+      "producer_contract": "consistency_matrix:FIELDS",
+      "stages": ["G5", "G6", "consistency", "submission"]
+    },
+    {
+      "id": "frozen-manifest",
+      "base": "run",
+      "glob": "FROZEN_MANIFEST.json",
+      "format": "json",
+      "schema": "schemas/frozen_manifest.schema.json",
+      "stages": ["G6", "G7", "paper_extension", "submission"]
+    },
+    {
+      "id": "ai-export-receipt",
+      "base": "run",
+      "glob": "ai/AI_EXPORT_RECEIPT.json",
+      "format": "json",
+      "schema": "schemas/ai_export_receipt.schema.json",
+      "stages": ["G7", "submission"]
+    },
+    {
+      "id": "ai-disclosure-pdf-receipt",
+      "base": "run",
+      "glob": "ai/AI_DISCLOSURE_PDF_RECEIPT.json",
+      "format": "json",
+      "schema": "schemas/ai_disclosure_pdf_receipt.schema.json",
+      "stages": ["G7", "submission", "package"]
+    },
+    {
+      "id": "no-source-attestation",
+      "base": "run",
+      "glob": "sources/NO_SOURCE_ATTESTATION.json",
+      "format": "json",
+      "schema": "schemas/no_source_attestation.schema.json",
+      "stages": ["G7", "submission"]
+    },
+    {
+      "id": "official-support-package-receipt",
+      "base": "run",
+      "glob": "deliverables/internal/SUPPORT_PACKAGE_RECEIPT.json",
+      "format": "json",
+      "schema": "schemas/support_package_receipt.schema.json",
+      "stages": ["G7", "submission", "package"]
+    },
+    {
+      "id": "delivery-manifest",
+      "base": "run",
+      "glob": "deliverables/DELIVERY_MANIFEST.json",
+      "format": "json",
+      "schema": "schemas/delivery_manifest.schema.json",
+      "stages": ["package"]
+    },
+    {
+      "id": "paper-compile-receipt",
+      "base": "run",
+      "glob": "deliverables/PAPER_COMPILE_RECEIPT.json",
+      "format": "json",
+      "schema": "schemas/paper_compile_receipt.schema.json",
+      "stages": ["G7", "submission", "package"]
+    },
+    {
+      "id": "v51-status",
+      "base": "run",
+      "glob": "V51_STATUS.json",
+      "format": "json",
+      "schema": "schemas/v51_status.schema.json",
+      "stages": ["submission"]
+    },
+    {
+      "id": "relay-handoff",
+      "base": "run",
+      "glob": "relay/*/round_*/HANDOFF.json",
+      "format": "json",
+      "schema": "schemas/handoff.schema.json",
+      "stages": ["relay"]
+    }
+  ]
+}

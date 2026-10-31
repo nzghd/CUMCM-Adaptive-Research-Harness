@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cumcm-harness.local/schemas/claim_evidence_ledger.schema.json",
+  "title": "Claim Evidence Ledger CSV Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "claim_text",
+    "claim_type",
+    "is_core",
+    "evidence_id",
+    "evidence_type",
+    "evidence_path",
+    "generation_command",
+    "result_summary",
+    "verification_status",
+    "verified_by",
+    "verified_at",
+    "paper_location",
+    "notes"
+  ],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "claim_text": {"type": "string", "minLength": 1},
+    "claim_type": {"type": "string", "minLength": 1},
+    "is_core": {"enum": ["true", "false"]},
+    "evidence_id": {"type": "string"},
+    "evidence_type": {"type": "string"},
+    "evidence_path": {"type": "string"},
+    "generation_command": {"type": "string"},
+    "result_summary": {"type": "string"},
+    "verification_status": {"enum": ["pending", "unverified", "verified"]},
+    "verified_by": {"type": "string"},
+    "verified_at": {"type": "string"},
+    "paper_location": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "evidence_id": {"const": ""},
+        "evidence_type": {"const": ""},
+        "evidence_path": {"const": ""},
+        "generation_command": {"const": ""},
+        "result_summary": {"const": ""},
+        "verification_status": {"const": "pending"},
+        "verified_by": {"const": ""},
+        "verified_at": {"const": ""}
+      }
+    },
+    {
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "evidence_type": {"type": "string", "minLength": 1},
+        "result_summary": {"type": "string", "minLength": 1},
+        "verification_status": {"enum": ["unverified", "verified"]}
+      }
+    }
+  ],
+  "allOf": [
+    {
+      "if": {"properties": {"verification_status": {"const": "verified"}}},
+      "then": {
+        "properties": {
+          "evidence_path": {"type": "string", "minLength": 1},
+          "verified_by": {"type": "string", "minLength": 1},
+          "verified_at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"verification_status": {"const": "unverified"}}},
+      "then": {
+        "properties": {
+          "verified_by": {"const": ""},
+          "verified_at": {"const": ""}
+        }
+      }
+    }
+  ]
+}

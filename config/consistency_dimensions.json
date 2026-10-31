@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "version": "5.1.0",
+  "dimensions": [
+    {
+      "id": "CNS-001",
+      "name": "duration_replay",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-002",
+      "name": "horizontal_kinematics",
+      "required": false,
+      "allow_not_applicable": true
+    },
+    {
+      "id": "CNS-003",
+      "name": "vertical_roundtrip",
+      "required": false,
+      "allow_not_applicable": true
+    },
+    {
+      "id": "CNS-004",
+      "name": "objective_replay",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-005",
+      "name": "constraint_feasibility",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-006",
+      "name": "unit_consistency",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-007",
+      "name": "equation_code_mapping",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-008",
+      "name": "result_table_mapping",
+      "required": true,
+      "allow_not_applicable": false
+    },
+    {
+      "id": "CNS-009",
+      "name": "figure_data_mapping",
+      "required": false,
+      "allow_not_applicable": true
+    },
+    {
+      "id": "CNS-010",
+      "name": "paper_evidence_mapping",
+      "required": false,
+      "allow_not_applicable": true
+    }
+  ],
+  "allowed_status": [
+    "PASS",
+    "PASS_WITH_TOLERANCE",
+    "FAIL",
+    "NOT_TESTED",
+    "NOT_APPLICABLE"
+  ],
+  "note": "Canonical consistency-dimension registry. Strict validation enforces every required entry; NOT_APPLICABLE is fail-closed unless that dimension explicitly sets allow_not_applicable=true and the run records a named, timestamped waiver reason."
+}

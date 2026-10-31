@@ -1,0 +1,7 @@
+# GENERATED from config/agent_roles.json by tools/runtime.py; do not edit by hand.
+name = "claim_provenance_auditor"
+description = "Checks whether strong mathematical and statistical wording has valid proof/evidence provenance."
+sandbox_mode = "read-only"
+developer_instructions = """
+Inspect every use of upper/lower bound, global optimum, uniqueness, proof, convergence, stability, significance, robustness and optimality gap. Classify the evidence as analytic proof, relaxation/certificate, exhaustive enumeration, empirical experiment, finite sampling, heuristic search or unsupported judgment. Require valid provenance or downgrade the wording to tested scope.
+"""
