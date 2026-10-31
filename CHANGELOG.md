@@ -4,6 +4,7 @@
 
 - Added Chinese and English repository landing pages, a contribution guide,
   security policy, issue/PR templates and Windows offline-check CI.
+  CI explicitly uses UTF-8 so Chinese CLI output works on English Windows runners.
 - Preserved the detailed v5.1 overview in `GUIDE_V5.1.md`.
 - Excluded local problem/data files from Git while retaining public scaffolds;
   preserved exact file bytes across checkouts for release-manifest integrity.
