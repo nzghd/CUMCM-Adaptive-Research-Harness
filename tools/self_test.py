@@ -566,7 +566,9 @@ def isolated_smoke() -> None:
     global TOOLS
     source_tools = TOOLS
     with tempfile.TemporaryDirectory(prefix="cumcm-harness-v51-base-") as tmp_value:
-        tmp = Path(tmp_value)
+        # Windows runners may expose TEMP through an 8.3 alias (RUNNER~1).
+        # The fixture must use the canonical path required by package guards.
+        tmp = Path(tmp_value).resolve()
         for name in ("config", "templates", "schemas", "upstream"):
             shutil.copytree(ROOT / name, tmp / name)
         # Run the harness from inside the isolated project too.  v5.1 approval

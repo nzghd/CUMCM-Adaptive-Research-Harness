@@ -14,6 +14,8 @@
   separately reviews the resolved obligation's historical wording.
   It refreshes the math-scan receipt after final science setup, before review.
   Validator requirements are unchanged.
+- Resolve the base smoke-test temporary root before passing it to path guards,
+  including Windows runners whose TEMP uses an 8.3 short-name alias.
 
 ## 5.1.0 — 2026-09-03
 
